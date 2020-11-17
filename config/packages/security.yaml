@@ -12,14 +12,19 @@ security:
                 property: username
     firewalls:
         login:
-            pattern: ^/login
+            pattern: /login_check
             stateless: true
             anonymous: true
             json_login:
                 check_path: /login_check
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
-        
+    
+        register:
+            pattern: /register
+            stateless: true
+            anonymous: true
+    
         api:
             pattern: .*
             stateless: true
@@ -28,5 +33,6 @@ security:
                     - lexik_jwt_authentication.jwt_token_authenticator
     
     access_control:
-        - { path: ^/login,  roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /login_check,  roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /register,  roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: .*,       roles: IS_AUTHENTICATED_FULLY }

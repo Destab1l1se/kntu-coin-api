@@ -4,11 +4,14 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
+ * @UniqueEntity("username", message="User with this username already exists")
  */
 class User implements UserInterface
 {
@@ -21,6 +24,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank(normalizer="trim", message="Username is required")
      */
     private $username;
 
@@ -37,11 +41,13 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(normalizer="trim", message="First name is required")
      */
     private $first_name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(normalizer="trim", message="Last name is required")
      */
     private $last_name;
 
@@ -60,7 +66,7 @@ class User implements UserInterface
         return (string)$this->username;
     }
 
-    public function setUsername(string $username): self
+    public function setUsername(?string $username): self
     {
         $this->username = $username;
 
@@ -123,7 +129,7 @@ class User implements UserInterface
         return $this->first_name;
     }
 
-    public function setFirstName(string $first_name): self
+    public function setFirstName(?string $first_name): self
     {
         $this->first_name = $first_name;
 
@@ -135,7 +141,7 @@ class User implements UserInterface
         return $this->last_name;
     }
 
-    public function setLastName(string $last_name): self
+    public function setLastName(?string $last_name): self
     {
         $this->last_name = $last_name;
 
