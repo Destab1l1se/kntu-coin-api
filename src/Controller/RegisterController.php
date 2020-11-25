@@ -36,11 +36,16 @@ class RegisterController extends AbstractController
         $user             = new User();
         $validationErrors = [];
 
-        $user->setFirstName($request->request->get('first_name'));
-        $user->setLastName($request->request->get('last_name'));
-        $user->setUsername($request->request->get('username'));
+        $parametersAsArray = [];
+        if ($content = $request->getContent()) {
+            $parametersAsArray = json_decode($content, true);
+        }
 
-        $plainPassword = $request->request->get('password');
+        $user->setFirstName($parametersAsArray['first_name']);
+        $user->setLastName($parametersAsArray['last_name']);
+        $user->setUsername($parametersAsArray['username']);
+
+        $plainPassword = $parametersAsArray['password'];
 
         if (!$plainPassword) {
             $validationErrors['password'] = ['Password is required'];
