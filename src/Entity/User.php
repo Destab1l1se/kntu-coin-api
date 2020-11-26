@@ -51,6 +51,11 @@ class User implements UserInterface
      */
     private $last_name;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $coinBalance;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -144,6 +149,18 @@ class User implements UserInterface
     public function setLastName(?string $last_name): self
     {
         $this->last_name = $last_name;
+
+        return $this;
+    }
+
+    public function getCoinBalance(): ?int
+    {
+        return $this->coinBalance;
+    }
+
+    public function setCoinBalance(int $coinBalance): self
+    {
+        $this->coinBalance = $coinBalance;
 
         return $this;
     }

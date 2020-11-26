@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\CommittedTransaction;
 use App\Entity\User;
 use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -67,7 +68,18 @@ class RegisterController extends AbstractController
         );
         $user->setPassword($encodedPassword);
 
+        $user->setCoinBalance(0);
+
         $entityManager->persist($user);
+        $entityManager->flush();
+
+//        add 10k coin to balance right after registration
+        $transaction = new CommittedTransaction();
+        $transaction->setSender(null);
+        $transaction->setReceiver($user);
+        $transaction->setCoinQuantity(10000);
+
+        $entityManager->persist($transaction);;
         $entityManager->flush();
 
         $token = $JWTManager->create($user);
