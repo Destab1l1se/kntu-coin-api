@@ -33,7 +33,7 @@ class RegisterController extends AbstractController
         UserPasswordEncoderInterface $passwordEncoder,
         JWTTokenManagerInterface $JWTManager
     ): Response {
-        $entityManager    = $this->getDoctrine()->getManager();
+        $em               = $this->getDoctrine()->getManager();
         $user             = new User();
         $validationErrors = [];
 
@@ -70,8 +70,8 @@ class RegisterController extends AbstractController
 
         $user->setCoinBalance(0);
 
-        $entityManager->persist($user);
-        $entityManager->flush();
+        $em->persist($user);
+        $em->flush();
 
 //        add 10k coin to balance right after registration
         $transaction = new CommittedTransaction();
@@ -79,8 +79,8 @@ class RegisterController extends AbstractController
         $transaction->setReceiver($user);
         $transaction->setCoinQuantity(10000);
 
-        $entityManager->persist($transaction);;
-        $entityManager->flush();
+        $em->persist($transaction);;
+        $em->flush();
 
         $token = $JWTManager->create($user);
 
