@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "9eec85ee4cb36cca8805c444fa02e0b3",
+  "content-hash": "394fe61dc21c71ca6dcdcbf974cdb294",
   "packages": [
     {
       "name": "composer/package-versions-deprecated",
@@ -15,16 +15,16 @@
         "reference": "c8c9aa8a14cc3d3bec86d0a8c3fa52ea79936855"
       },
       "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/c8c9aa8a14cc3d3bec86d0a8c3fa52ea79936855",
-                "reference": "c8c9aa8a14cc3d3bec86d0a8c3fa52ea79936855",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1.0 || ^2.0",
-                "php": "^7 || ^8"
-            },
-            "replace": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/c8c9aa8a14cc3d3bec86d0a8c3fa52ea79936855",
+        "reference": "c8c9aa8a14cc3d3bec86d0a8c3fa52ea79936855",
+        "shasum": ""
+      },
+      "require": {
+        "composer-plugin-api": "^1.1.0 || ^2.0",
+        "php": "^7 || ^8"
+      },
+      "replace": {
                 "ocramius/package-versions": "1.11.99"
             },
             "require-dev": {
@@ -4572,26 +4572,118 @@
                 },
                 {
                     "url": "https://github.com/fabpot",
-                    "type": "github"
+                  "type": "github"
                 },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
+              {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+              }
             ],
-            "time": "2020-10-25T22:13:28+00:00"
+          "time": "2020-10-25T22:13:28+00:00"
+        },
+    {
+      "name": "symfony/serializer",
+      "version": "v5.1.9",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/serializer.git",
+        "reference": "5bc62ff6cd4678363ae19a633667fd318b1a72f7"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/serializer/zipball/5bc62ff6cd4678363ae19a633667fd318b1a72f7",
+        "reference": "5bc62ff6cd4678363ae19a633667fd318b1a72f7",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.2.5",
+        "symfony/polyfill-ctype": "~1.8",
+        "symfony/polyfill-php80": "^1.15"
+      },
+      "conflict": {
+        "phpdocumentor/type-resolver": "<0.2.1",
+        "symfony/dependency-injection": "<4.4",
+        "symfony/property-access": "<4.4",
+        "symfony/property-info": "<4.4",
+        "symfony/yaml": "<4.4"
+      },
+      "require-dev": {
+        "doctrine/annotations": "~1.0",
+        "doctrine/cache": "~1.0",
+        "phpdocumentor/reflection-docblock": "^3.2|^4.0",
+        "symfony/cache": "^4.4|^5.0",
+        "symfony/config": "^4.4|^5.0",
+        "symfony/dependency-injection": "^4.4|^5.0",
+        "symfony/error-handler": "^4.4|^5.0",
+        "symfony/http-foundation": "^4.4|^5.0",
+        "symfony/mime": "^4.4|^5.0",
+        "symfony/property-access": "^4.4|^5.0",
+        "symfony/property-info": "^4.4|^5.0",
+        "symfony/validator": "^4.4|^5.0",
+        "symfony/yaml": "^4.4|^5.0"
+      },
+      "suggest": {
+        "doctrine/annotations": "For using the annotation mapping. You will also need doctrine/cache.",
+        "doctrine/cache": "For using the default cached annotation reader and metadata cache.",
+        "psr/cache-implementation": "For using the metadata cache.",
+        "symfony/config": "For using the XML mapping loader.",
+        "symfony/mime": "For using a MIME type guesser within the DataUriNormalizer.",
+        "symfony/property-access": "For using the ObjectNormalizer.",
+        "symfony/property-info": "To deserialize relations.",
+        "symfony/yaml": "For using the default YAML mapping loader."
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Symfony\\Component\\Serializer\\": ""
+        },
+        "exclude-from-classmap": [
+          "/Tests/"
+        ]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Fabien Potencier",
+          "email": "fabien@symfony.com"
         },
         {
-            "name": "symfony/service-contracts",
-            "version": "v2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "d15da7ba4957ffb8f1747218be9e1a121fd298a1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/d15da7ba4957ffb8f1747218be9e1a121fd298a1",
+          "name": "Symfony Community",
+          "homepage": "https://symfony.com/contributors"
+        }
+      ],
+      "description": "Symfony Serializer Component",
+      "homepage": "https://symfony.com",
+      "funding": [
+        {
+          "url": "https://symfony.com/sponsor",
+          "type": "custom"
+        },
+        {
+          "url": "https://github.com/fabpot",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2020-11-27T05:53:16+00:00"
+    },
+    {
+      "name": "symfony/service-contracts",
+      "version": "v2.2.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/symfony/service-contracts.git",
+        "reference": "d15da7ba4957ffb8f1747218be9e1a121fd298a1"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/symfony/service-contracts/zipball/d15da7ba4957ffb8f1747218be9e1a121fd298a1",
                 "reference": "d15da7ba4957ffb8f1747218be9e1a121fd298a1",
                 "shasum": ""
             },
@@ -4790,14 +4882,14 @@
                 "source": "https://github.com/symfony/string/tree/v5.1.8"
             },
             "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                  "type": "github"
-                },
+              {
+                "url": "https://symfony.com/sponsor",
+                "type": "custom"
+              },
+              {
+                "url": "https://github.com/fabpot",
+                "type": "github"
+              },
               {
                 "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
                 "type": "tidelift"
@@ -4996,16 +5088,16 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/symfony/var-dumper/zipball/4e13f3fcefb1fcaaa5efb5403581406f4e840b9a",
-                "reference": "4e13f3fcefb1fcaaa5efb5403581406f4e840b9a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2.5",
-                "symfony/polyfill-mbstring": "~1.0",
-                "symfony/polyfill-php80": "^1.15"
-            },
-            "conflict": {
-                "phpunit/phpunit": "<5.4.3",
+        "reference": "4e13f3fcefb1fcaaa5efb5403581406f4e840b9a",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.2.5",
+        "symfony/polyfill-mbstring": "~1.0",
+        "symfony/polyfill-php80": "^1.15"
+      },
+      "conflict": {
+        "phpunit/phpunit": "<5.4.3",
                 "symfony/console": "<4.4"
             },
             "require-dev": {
@@ -5498,9 +5590,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.3",
-        "ext-ctype": "*",
-        "ext-iconv": "*"
+      "php": ">=7.3",
+      "ext-ctype": "*",
+      "ext-iconv": "*",
+      "ext-json": "*"
     },
     "platform-dev": [],
   "plugin-api-version": "1.1.0"

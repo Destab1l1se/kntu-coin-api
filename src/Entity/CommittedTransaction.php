@@ -33,6 +33,11 @@ class CommittedTransaction
      */
     private $sender;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $approvedForNextBlock = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -70,6 +75,18 @@ class CommittedTransaction
     public function setSender(?User $sender): self
     {
         $this->sender = $sender;
+
+        return $this;
+    }
+
+    public function getApprovedForNextBlock(): ?bool
+    {
+        return $this->approvedForNextBlock;
+    }
+
+    public function setApprovedForNextBlock(bool $approvedForNextBlock): self
+    {
+        $this->approvedForNextBlock = $approvedForNextBlock;
 
         return $this;
     }

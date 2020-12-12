@@ -19,22 +19,19 @@ class CommittedTransactionRepository extends ServiceEntityRepository
         parent::__construct($registry, CommittedTransaction::class);
     }
 
-    // /**
-    //  * @return CommittedTransaction[] Returns an array of CommittedTransaction objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param $value
+     *
+     * @return CommittedTransaction[] Returns an array of CommittedTransaction objects
+     */
+    public function findByApprovedForNextBlock(bool $value): array
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+            ->andWhere('c.approvedForNextBlock = :val')
             ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?CommittedTransaction
