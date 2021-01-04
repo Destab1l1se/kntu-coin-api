@@ -114,7 +114,7 @@ class MiningController extends AbstractController
         $string  = $newNonce . $lastBlockHash . $jsonTransactions;
         $newHash = hash('sha256', $string);
 
-        if (str_starts_with($newHash, '000')) {
+        if (str_starts_with($newHash, '0000')) {
             $em = $this->getDoctrine()->getManager();
 
             $newBlock = new Block();
